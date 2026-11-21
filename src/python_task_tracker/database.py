@@ -44,7 +44,7 @@ def add_task(title: str, priority: str = "medium", due_date: Optional[str] = Non
         conn.commit()
         if cursor.lastrowid is None:
             raise RuntimeError("Failed to retrieve lastrowid after inserting task")
-        return cursor.lastrowid
+        return cursor.lastrowid  # returning the last inserted row id
 
 
 # method which will convert sqlite returned row into task model type (useful when getting the data from DB)
